@@ -27,6 +27,12 @@ public class MovieRental {
 		System.out.println(cust2.statement());
 		System.out.println("===============================\n");
 		System.out.println(cust3.statement());
+		
+		System.out.println(cust1.htmlStatement());
+		System.out.println("===============================\n");
+		System.out.println(cust2.htmlStatement());
+		System.out.println("===============================\n");
+		System.out.println(cust3.htmlStatement());
 
 	}
 
