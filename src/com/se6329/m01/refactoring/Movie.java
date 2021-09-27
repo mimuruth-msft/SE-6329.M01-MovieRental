@@ -1,3 +1,6 @@
+package com.se6329.m01.refactoring;
+
+
 public class Movie {
 
 	public static final int CHILDRENS = 2;

@@ -1,3 +1,4 @@
+package com.se6329.m01.refactoring;
 public class Rental {
 	private Movie _movie;
 	private int _daysRented;

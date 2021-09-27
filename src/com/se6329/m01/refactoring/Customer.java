@@ -1,3 +1,4 @@
+package com.se6329.m01.refactoring;
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -33,16 +34,16 @@ public class Customer {
 	
 	public String htmlStatement() {
 		Enumeration rentals = _rentals.elements();
-		String result = "<H1>Rentals for <EM>" + getName() + "</EM></H1><P>\n";
+		String result = "<h1>Rentals for <em>" + getName() + "</em></h1>\n<table>\n";
 		while (rentals.hasMoreElements()) {
 			Rental each = (Rental) rentals.nextElement();
 			// show figures for each rental
-			result += each.getMovie().getTitle() + ": " + String.valueOf(each.getCharge()) + "<BR>\n";
+			result += "  <tr><td>" + each.getMovie().getTitle() + "</td><td>" + ": " + String.valueOf(each.getCharge()) + "</td></tr>\n";
 		}
 		// add footer lines
-		result += "<P>You owe <EM>" + String.valueOf(getTotalCharge()) + "</EM><P>\n";
-		result += "On this rental you earned <EM>" + String.valueOf(getTotalFrequentRenterPoints())
-				+ "</EM> frequent renter points<P>";
+		result += "</table>\n<p>Amount owed is <em>" + String.valueOf(getTotalCharge()) + "</em></p>\n";
+		result += "<p>You earned <em>" + String.valueOf(getTotalFrequentRenterPoints())
+				+ "</em> frequent renter points</p>";
 		return result;
 	}
 
