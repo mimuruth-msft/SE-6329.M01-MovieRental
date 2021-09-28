@@ -1,75 +1,56 @@
 package com.se6329.m01.refactoring;
-import java.util.Enumeration;
-import java.util.Vector;
+
+import java.util.List;
+import java.util.ArrayList;
 
 public class Customer {
-	private String _name;
-	private Vector _rentals = new Vector();
+	private String name;
+	private List<Rental> rentals = new ArrayList<Rental>();
 
 	public Customer(String name) {
-		_name = name;
-	}
-
-	public void addRental(Rental arg) {
-		_rentals.addElement(arg);
+		this.name = name;
 	}
 
 	public String getName() {
-		return _name;
+		return name;
+	}
+
+	public void addRental(Rental rental) {
+		rentals.add(rental);
 	}
 
 	public String statement() {
-		Enumeration rentals = _rentals.elements();
 		String result = "Rental Record for " + getName() + "\n";
-		while (rentals.hasMoreElements()) {
-			Rental each = (Rental) rentals.nextElement();
-			// show figures for this rental
-			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
-		}
-		// add footer lines
+		for (Rental rental : rentals)
+			result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.getCharge()) + "\n";
 		result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
 		result += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) + " frequent renter points";
 		return result;
 	}
-	
+
 	public String htmlStatement() {
-		Enumeration rentals = _rentals.elements();
-		String result = "<h1>Rentals for <em>" + getName() + "</em></h1>\n<table>\n";
-		while (rentals.hasMoreElements()) {
-			Rental each = (Rental) rentals.nextElement();
-			// show figures for each rental
-			result += "  <tr><td>" + each.getMovie().getTitle() + "</td><td>" + ": " + String.valueOf(each.getCharge()) + "</td></tr>\n";
-		}
-		// add footer lines
+		String result = "<h1>Rental record for <em>" + getName() + "</em></h1>\n<table>\n";
+		for (Rental rental : rentals)
+			result += "\t<tr><td>" + rental.getMovie().getTitle() + "</td><td>" + ": "
+					+ String.valueOf(rental.getCharge()) + "</td></tr>\n";
 		result += "</table>\n<p>Amount owed is <em>" + String.valueOf(getTotalCharge()) + "</em></p>\n";
 		result += "<p>You earned <em>" + String.valueOf(getTotalFrequentRenterPoints())
 				+ "</em> frequent renter points</p>";
 		return result;
 	}
 
-	private int getTotalFrequentRenterPoints() {
-		int result = 0;
-		Enumeration rentals = _rentals.elements();
-		while (rentals.hasMoreElements()) {
-			Rental each = (Rental) rentals.nextElement();
-			result += each.getFrequentRenterPoints();
-		}
-		return result;
-	}
-
 	private double getTotalCharge() {
-		double result = 0;
-		Enumeration rentals = _rentals.elements();
-		while (rentals.hasMoreElements()) {
-			Rental each = (Rental) rentals.nextElement();
-			result += each.getCharge();
-		}
-		return result;
+		double total = 0;
+		for (Rental rental : rentals)
+			total += rental.getCharge();
+		return total;
 	}
 
-	
-
-	private double amountFor(Rental rental) {
-		return rental.getCharge();
+	private int getTotalFrequentRenterPoints() {
+		int total = 0;
+		for (Rental rental : rentals)
+			total += rental.getFrequentRenterPoints();
+		return total;
 	}
+
 }
