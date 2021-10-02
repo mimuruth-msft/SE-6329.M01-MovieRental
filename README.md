@@ -1,1 +1,1 @@
-# Welcome to the SE 6329 Project Wiki
+# Welcome to the SE 6329 Movie Project
