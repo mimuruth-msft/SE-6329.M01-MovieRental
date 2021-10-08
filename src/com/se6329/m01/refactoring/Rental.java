@@ -13,6 +13,10 @@ public class Rental {
 		return _movie;
 	}
 
+	public String getMovieRentalTitle () {
+		return _movie.getTitle();
+	}
+
 	public int getDaysRented() {
 		return _daysRented;
 	}
