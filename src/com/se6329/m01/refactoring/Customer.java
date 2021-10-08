@@ -7,6 +7,10 @@ public class Customer {
 	private String name;
 	private List<Rental> rentals = new ArrayList<Rental>();
 
+	public Customer() {
+		name = "";
+	}
+
 	public Customer(String name) {
 		this.name = name;
 	}
@@ -22,7 +26,7 @@ public class Customer {
 	public String statement() {
 		String result = "Rental Record for " + getName() + "\n";
 		for (Rental rental : rentals)
-			result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.getCharge()) + "\n";
+			result += "\t" + rental.getMovieRentalTitle() + "\t" + String.valueOf(rental.getCharge()) + "\n";
 		result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
 		result += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) + " frequent renter points";
 		return result;
@@ -31,7 +35,7 @@ public class Customer {
 	public String htmlStatement() {
 		String result = "<h1>Rental record for <em>" + getName() + "</em></h1>\n<table>\n";
 		for (Rental rental : rentals)
-			result += "\t<tr><td>" + rental.getMovie().getTitle() + "</td><td>" + ": "
+			result += "\t<tr><td>" + rental.getMovieRentalTitle() + "</td><td>" + ": "
 					+ String.valueOf(rental.getCharge()) + "</td></tr>\n";
 		result += "</table>\n<p>Amount owed is <em>" + String.valueOf(getTotalCharge()) + "</em></p>\n";
 		result += "<p>You earned <em>" + String.valueOf(getTotalFrequentRenterPoints())
