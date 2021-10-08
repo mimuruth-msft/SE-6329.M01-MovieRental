@@ -7,7 +7,10 @@ public class Movie {
 	public static final int NEW_RELEASE = 1;
 
 	private String _title;
-	Price price;
+
+	public Movie() {
+		_title = "";
+	}
 
 	public Movie(String title, int priceCode) {
 		this._title = title;
