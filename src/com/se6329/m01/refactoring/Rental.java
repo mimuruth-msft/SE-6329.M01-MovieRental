@@ -4,10 +4,6 @@ public class Rental {
 	Movie _movie;
 	private int _daysRented;
 
-	public Rental() {
-		this._movie = null;
-		this._daysRented = -1;
-	}
 
 	public Rental(Movie movie, int daysRented) {
 		this._movie = movie;
