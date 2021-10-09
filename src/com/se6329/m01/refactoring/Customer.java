@@ -32,7 +32,7 @@ public class Customer {
 		return result;
 	}
 
-	public String htmlStatement() {
+	public String htmlRentalReceipt() {
 		String result = "<h1>Rental record for <em>" + getName() + "</em></h1>\n<table>\n";
 		for (Rental rental : rentals)
 			result += "\t<tr><td>" + rental.getMovieRentalTitle() + "</td><td>" + ": "
