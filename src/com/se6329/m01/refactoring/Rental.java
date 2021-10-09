@@ -14,7 +14,6 @@ public class Rental {
 		return _movie;
 	}
 
-
 	public String getMovieRentalTitle () {
 		return _movie.getTitle();
 	}
