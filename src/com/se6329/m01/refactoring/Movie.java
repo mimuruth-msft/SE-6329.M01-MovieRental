@@ -8,6 +8,7 @@ public class Movie {
 
 	private String _title;
 
+
 	public Movie(String title, int priceCode) {
 		this._title = title;
 		setPriceCode(priceCode);
