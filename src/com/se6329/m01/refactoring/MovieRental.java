@@ -12,7 +12,7 @@ public class MovieRental {
         customer.addRental(new Rental(new Movie("Toy Story", Movie.CHILDRENS), 4));
 
 
-        System.out.println(customer.htmlStatement());
+        System.out.println(customer.htmlRentalReceipt());
 
 	}
 
