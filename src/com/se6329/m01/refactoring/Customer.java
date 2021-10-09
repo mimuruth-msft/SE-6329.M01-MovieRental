@@ -23,14 +23,6 @@ public class Customer {
 		rentals.add(rental);
 	}
 
-	public String statement() {
-		String result = "Rental Record for " + getName() + "\n";
-		for (Rental rental : rentals)
-			result += "\t" + rental.getMovieRentalTitle() + "\t" + String.valueOf(rental.getCharge()) + "\n";
-		result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
-		result += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) + " frequent renter points";
-		return result;
-	}
 
 	public String htmlRentalReceipt() {
 		String result = "<h1>Rental record for <em>" + getName() + "</em></h1>\n<table>\n";
@@ -53,7 +45,7 @@ public class Customer {
 	private int getTotalFrequentRenterPoints() {
 		int total = 0;
 		for (Rental rental : rentals)
-			total += rental.getFrequentRenterPoints();
+			total += rental.getRentalPointValue();
 		return total;
 	}
 
