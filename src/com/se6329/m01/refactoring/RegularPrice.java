@@ -14,7 +14,8 @@ public class RegularPrice extends Price {
         return Movie.REGULAR;
     }
 
-    
+
+
     @Override
     public double getCharge(int daysRented) {
         double amount = 2;
@@ -22,5 +23,6 @@ public class RegularPrice extends Price {
             amount += (daysRented - 2) * 1.5;
         return amount;
     }
-    
+
+
 }
