@@ -23,7 +23,6 @@ public class Customer {
 		rentals.add(rental);
 	}
 
-
 	public String htmlRentalReceipt() {
 		String result = "<h1>Rental record for <em>" + getName() + "</em></h1>\n<table>\n";
 		for (Rental rental : rentals)
